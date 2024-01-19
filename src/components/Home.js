@@ -74,9 +74,9 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <div className="w-75 mx-auto">
+    <div className="w-75 mx-auto ">
       <h2 className='mx-auto fw-bolder '>Your Saved Notes</h2>
-      <div class="row mx-auto d-flex justify-content-center">
+      <div class="row mx-auto d-flex justify-content-between">
         {myNotes.map((notes) => {
           return <Notes key={notes._id} notes={notes} updatemynote={updatemynote} />
         })}
