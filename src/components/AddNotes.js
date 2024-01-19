@@ -29,7 +29,7 @@ const onsubmit=(e)=>{
         <textarea class="form-control" id="description" name="description" rows="3" value={note.description} onChange={onchangevalue} ></textarea>
       </div>
       <div className="container d-flex justify-content-center">
-        <button  disabled={note.title.length<6 && note.title.length<6} type="button" class="btn btn-dark fw-bolder py-2 px-3" onClick={onsubmit}>Submit</button>
+        <button  disabled={note.title.length<6 && note.description.length<6} type="button" class="btn btn-dark fw-bolder py-2 px-3" onClick={onsubmit}>Submit</button>
       </div>
     </Container>
 

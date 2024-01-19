@@ -17,6 +17,7 @@ export default function Home() {
     if(localStorage.getItem('id'))
     {
       getNotes();
+      console.log(myNotes);
     }
     else{
       history('/login')
@@ -39,6 +40,10 @@ export default function Home() {
     setEditnote({ ...editnote, [e.target.name]: e.target.value })
 
   }
+   if(myNotes==='Internal Server Error')
+   {
+    history('/login')
+   }
 
   return (<>
      <Navbar/>

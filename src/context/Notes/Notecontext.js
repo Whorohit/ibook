@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const NoteState = (props) => {
  
   const url = "http://localhost:5000"
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
   const [myNotes, setMyNotes] = useState([ ])
   const [alertmessage, setAlertmessage] = useState({ delete: { msg: "Note Delete  Successfully" }, edit: { msg: "Note Edit Successfully" }, add: { msg: "Note  Added  Successfully" }, login: { msg: "Login Succeccsfully" }, Signup: { msg: "Account Createed Successfully" } })
   const [alert, setAlert] = useState(null)
@@ -14,8 +15,8 @@ const NoteState = (props) => {
   }
 
   const getNotes = async () => {
-    {
-      const response = await fetch(`http://localhost:5000/api/allnotes`, {
+    { 
+      const response = await fetch(`${BASE_URL}/api/allnotes`, {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         headers: {
           "Content-Type": " application/json",
@@ -26,6 +27,8 @@ const NoteState = (props) => {
       });
       const jsonfile = await response.json()
       setMyNotes(jsonfile)
+      console.log(jsonfile);
+      
     }
 
   }
@@ -34,7 +37,7 @@ const NoteState = (props) => {
 
   const addnotes = async (title, description) => {
     {
-      const response = await fetch(`http://localhost:5000/api/savenote`, {
+      const response = await fetch(`${BASE_URL}/api/savenote`, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +68,7 @@ const NoteState = (props) => {
   }
   const deleteNotes = async (id) => {
     {
-      const response = await fetch(`${url}/api/deletenote/${id}`, {
+      const response = await fetch(`${BASE_URL}/api/deletenote/${id}`, {
         method: "GET", // *GET, POST, PUT, DELETE, etc.
         headers: {
           "Content-Type": "application/json",
@@ -92,7 +95,7 @@ const NoteState = (props) => {
   const editNotes = async (id, title, description) => {
     {
       //code for serve side 
-      const response = await fetch(`http://localhost:5000/api/updatenote/${id}`, {
+      const response = await fetch(`${BASE_URL}/api/updatenote/${id}`, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
           "Content-Type": "application/json",
@@ -127,7 +130,7 @@ const NoteState = (props) => {
   }
   // fetch for auth login 
   const login = async (email, password) => {
-    const response = await fetch(`http://localhost:5000/api/login`, {
+    const response = await fetch(`${BASE_URL}/api/login`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
@@ -157,7 +160,7 @@ const NoteState = (props) => {
 
   }
   const create = async (name, email, password) => {
-    const response = await fetch(`http://localhost:5000/api/auth`, {
+    const response = await fetch(`${BASE_URL}/api/auth`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
