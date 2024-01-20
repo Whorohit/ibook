@@ -130,7 +130,7 @@ const NoteState = (props) => {
   }
   // fetch for auth login 
   const login = async (email, password) => {
-    const response = await fetch(`${url}/api/login`, {
+    const response = await fetch(`${BASE_URL}/api/login`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
@@ -160,7 +160,7 @@ const NoteState = (props) => {
 
   }
   const create = async (name, email, password) => {
-    const response = await fetch(`${url}/api/auth`, {
+    const response = await fetch(`${BASE_URL}/api/auth`, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
       headers: {
         "Content-Type": "application/json",
