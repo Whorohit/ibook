@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import Notecontext from '../context/Notes/Context'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate ,Link} from 'react-router-dom'
 import Alert from './alert'
 
 export default function Login() {
@@ -21,7 +21,7 @@ export default function Login() {
 
     }
     else {
-      await a.handlechangealert('danger', jsonlogin.errors)
+      await a.handlechangealert('danger', jsonlogin.msg)
       setTimeout(() => {
         a.setAlert(null)
       }, 3000)
@@ -35,8 +35,8 @@ export default function Login() {
   }
   return (
     <>
-      <Alert />
-      <section class="h-100 gradient-form" style={{ backgroundColor: "#eee" }}>
+     <Alert/>
+      <section class="gradient-form" style={{ backgroundColor: "#eee" }}>
         <div class="container h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-10">
@@ -65,6 +65,11 @@ export default function Login() {
                           <label class="form-label" for="password">Password</label>
                         </div>
 
+                        <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column">
+                          <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"  >Log
+                            in</button>
+                         
+                        </div>
 
                         <div class="d-flex align-items-center justify-content-center pb-4">
                           <p class="mb-0 me-2">Don't have an account?</p>

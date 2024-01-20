@@ -23,7 +23,7 @@ export default function Signup() {
     }
     else
     {
-        await handlechangealert('danger',json.errors.msg)
+        await handlechangealert('danger',json.msg)
         setTimeout(() => {
           setAlert(null)
         }, 3000)
@@ -43,7 +43,7 @@ export default function Signup() {
   return (
    <>
     <Alert/>
-    <section className="mh-100 py-2   " style={{backgroundColor: "#eee"}}>
+    <section className=" py-2   " style={{backgroundColor: "#eee"}}>
     <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
